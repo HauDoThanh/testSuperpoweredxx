@@ -61,28 +61,31 @@ public class MainActivity extends AppCompatActivity {
 
 
         // reverb events
-        final SeekBar fxDry = (SeekBar) findViewById(R.id.reverb_dry);
+        /*final SeekBar fxDry = (SeekBar) findViewById(R.id.reverb_dry);
         fxDry.setOnSeekBarChangeListener(seekBarChangeListener);
         final SeekBar fxWidth = (SeekBar) findViewById(R.id.reverb_width);
-        fxWidth.setOnSeekBarChangeListener(seekBarChangeListener);
-        final SeekBar fxMix = (SeekBar) findViewById(R.id.reverb_mix);
-        fxMix.setOnSeekBarChangeListener(seekBarChangeListener);
-        final SeekBar fxWet = (SeekBar) findViewById(R.id.reverb_wet);
+        fxWidth.setOnSeekBarChangeListener(seekBarChangeListener);*/
+
+
+       /* final SeekBar fxWet = (SeekBar) findViewById(R.id.reverb_wet);
         fxWet.setOnSeekBarChangeListener(seekBarChangeListener);
         final SeekBar fxRoomSize = (SeekBar) findViewById(R.id.reverb_roomsize);
         fxRoomSize.setOnSeekBarChangeListener(seekBarChangeListener);
         final SeekBar fxDamp = (SeekBar) findViewById(R.id.reverb_damp);
-        fxDamp.setOnSeekBarChangeListener(seekBarChangeListener);
+        fxDamp.setOnSeekBarChangeListener(seekBarChangeListener);*/
 
         final SeekBar fxMixEcho = (SeekBar) findViewById(R.id.echo_mix);
         fxMixEcho.setOnSeekBarChangeListener(seekBarChangeListener);
 
-        txtDry = (TextView) findViewById(R.id.dry_value);
-        txtMix = (TextView) findViewById(R.id.mix_value);
-        txtRoomSize = (TextView) findViewById(R.id.roomsize_value);
+        final SeekBar fxMix = (SeekBar) findViewById(R.id.reverb_mix);
+        fxMix.setOnSeekBarChangeListener(seekBarChangeListener);
+
+        //txtDry = (TextView) findViewById(R.id.dry_value);
+        txtMix = (TextView) findViewById(R.id.reverb_value);
+        /*txtRoomSize = (TextView) findViewById(R.id.roomsize_value);
         txtWet = (TextView) findViewById(R.id.wet_value);
         txtWidth = (TextView) findViewById(R.id.width_value);
-        txtDamp = (TextView) findViewById(R.id.damp_value);
+        txtDamp = (TextView) findViewById(R.id.damp_value);*/
         txtEchoValue = (TextView) findViewById(R.id.echo_value);
 
     }
@@ -93,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             int id = seekBar.getId();
             String value = String.valueOf(progress * 0.01);
             switch (id) {
-                case R.id.reverb_dry:
+                /*case R.id.reverb_dry:
                     onFxReverbValue(REVERB_DRY, progress);
                     txtDry.setText(value);
                     break;
@@ -116,10 +119,21 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.reverb_damp:
                     onFxReverbValue(REVERB_DAMP, progress);
                     txtDamp.setText(value);
-                    break;
+                    break;*/
                 case R.id.echo_mix:
                     onEcho(progress);
                     txtEchoValue.setText(value);
+                    break;
+
+                case R.id.reverb_mix:
+               //     onFxReverbValue(REVERB_DRY, progress);
+                    onFxReverbValue(REVERB_MIX, progress);
+                    onFxReverbValue(REVERB_ROOMSIZE, progress);
+              //      onFxReverbValue(REVERB_WET, progress);
+                    onFxReverbValue(REVERB_WIDTH, progress);
+             //       onFxReverbValue(REVERB_DAMP, progress);
+
+                    txtMix.setText(value);
                     break;
             }
         }

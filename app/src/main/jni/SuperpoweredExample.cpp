@@ -83,9 +83,9 @@ void SuperpoweredExample::onFxReverbValue(int param, int value) {
                         param, scaleValue);
     reverb->enable(true);
     switch (param) {
-        case REVERB_DRY:
+       /* case REVERB_DRY:
             reverb->setDry(scaleValue);
-            break;
+            break;*/
         case REVERB_MIX:
             reverb->setMix(scaleValue);
             break;
@@ -95,12 +95,12 @@ void SuperpoweredExample::onFxReverbValue(int param, int value) {
         case REVERB_ROOMSIZE:
             reverb->setRoomSize(scaleValue);
             break;
-        case REVERB_WET:
+       /* case REVERB_WET:
             reverb->setWet(scaleValue);
             break;
         case REVERB_DAMP:
             reverb->setDamp(scaleValue);
-            break;
+            break;*/
     }
 
 }
